@@ -1009,18 +1009,18 @@ uint16_t LoRa_E220::readRSSIAmbient() {
         return RSSI_AMBIENT_ERROR_RESPONSE;
     }
 
-    ResponseStructContainer c = getConfiguration();
-	// if (c.status.code != E220_SUCCESS) {
-	// 	Serial.println("Problem with loading LoRa configuration");
+ //    ResponseStructContainer c = getConfiguration();
+	// // if (c.status.code != E220_SUCCESS) {
+	// // 	Serial.println("Problem with loading LoRa configuration");
+	// // 	return RSSI_AMBIENT_ERROR_RESPONSE;
+	// // }
+	// Configuration configuration = *(Configuration*) c.data;
+	// c.close();
+
+	// if(!configuration.OPTION.RSSIAmbientNoise){
+	// 	Serial.println("RSSI Ambient not enabled");
 	// 	return RSSI_AMBIENT_ERROR_RESPONSE;
 	// }
-	Configuration configuration = *(Configuration*) c.data;
-	c.close();
-
-	if(!configuration.OPTION.RSSIAmbientNoise){
-		Serial.println("RSSI Ambient not enabled");
-		return RSSI_AMBIENT_ERROR_RESPONSE;
-	}
 
 	if(getMode() != MODE_0_NORMAL & getMode() != MODE_1_WOR_TRANSMITTER){
 		Serial.println("Module not in the correct mode, must be in normal or WOR sending");
